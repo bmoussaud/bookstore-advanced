@@ -301,6 +301,7 @@
                                 <id>build-container</id>
                                 <goals>
                                     <goal>build</goal>
+                                    <goal>push</goal>
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>

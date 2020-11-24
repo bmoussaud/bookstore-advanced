@@ -1,4 +1,4 @@
-FROM postgres:12
+FROM postgres:13
 
 ARG image_url='https://github.com/octodemo-containers/bookstore-advanced'
 ARG version=0
