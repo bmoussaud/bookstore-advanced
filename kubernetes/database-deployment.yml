@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       service: bookstore-db
-  
+
   template:
     metadata:
       labels:
@@ -20,13 +20,11 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:12
-          
+          image: registry.local:5000/bmoussaud/bookstore-advanced-database:1.0.0-0.0.1
           volumeMounts:
             - name: postgres-volume-mount
               mountPath: /var/lib/postgresql/data
               subPath: postgres
-          
           env:
             - name: POSTGRES_USER
               valueFrom:

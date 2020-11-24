@@ -9,7 +9,7 @@ metadata:
     app: bookstore
   name: bookstore
   namespace: default
-  
+
 spec:
   replicas: 1
   selector:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: bookstore
-          image: eu.gcr.io/octodemo-db-291120/octodemo-db-bookstore:1.0.0-peter-murray-patch-1-3264e6e7-SNAPSHOT
+          image: registry.local:5000/bmoussaud/bookstore-advanced:1.0.0-0.0.1
           imagePullPolicy: IfNotPresent
 
           env:
@@ -34,13 +34,13 @@ spec:
                 secretKeyRef:
                   name: bookstore-db-credentials
                   key: user
-                                
+
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: bookstore-db-credentials
                   key: password
-          
+
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 5

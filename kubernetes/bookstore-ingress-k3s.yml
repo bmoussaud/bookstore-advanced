@@ -1,0 +1,19 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: bookstore.traefik
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`dev.book-cluster.demo`)
+      kind: Rule
+      priority: 12
+      services:
+        - name: bookstore
+          port: 8080
+
+
+

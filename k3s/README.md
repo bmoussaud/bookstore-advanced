@@ -43,7 +43,12 @@ Apply the following configuration
 kubectl apply -f k3s/test-k3s-traefik-contif.yaml
 ```
 
-and check with your browser you can connect to `https://localhost:80/whoami/`
+and check with your browser you can connect to `https://localhost:80/whoami/` or running
+
+```bash
+curl -k https://localhost:80/whoami/
+```
+
 
 ## Build the application
 
@@ -72,8 +77,9 @@ docker push registry.local:5000/bmoussaud/bookstore-advanced-database:$DB_VERSIO
 ## References:
 
 * https://codeburst.io/creating-a-local-development-kubernetes-cluster-with-k3s-and-traefik-proxy-7a5033cb1c2d
-*  https://k33g.gitlab.io/articles/2020-02-27-K3S-05-REGISTRY.html
+* https://k33g.gitlab.io/articles/2020-02-27-K3S-05-REGISTRY.html
 * https://k3d.io/usage/guides/registries
+* https://blog.ruanbekker.com/blog/2020/02/21/persistent-volumes-with-k3d-kubernetes/
 
 
 

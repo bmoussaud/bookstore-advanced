@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+
+metadata:
+  name: bookstore-db-pvc
+  labels:
+    type: local
+spec:
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
