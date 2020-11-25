@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: bookstore
-          image: registry.local:5000/bmoussaud/bookstore-advanced:1.0.0-9b12cee
+          image: registry.local:5000/bmoussaud/bookstore-advanced:1.0.0-
           imagePullPolicy: IfNotPresent
 
           env:
