@@ -1,0 +1,11 @@
+---
+apiVersion: xl-deploy/v1
+kind: Environments
+spec:
+- directory: Environments/book-shop
+  children:
+  - name: book.dev
+    type: udm.Environment
+    members:
+    - Infrastructure/book-shop/book-cluster
+    - Infrastructure/book-shop/book-cluster/default

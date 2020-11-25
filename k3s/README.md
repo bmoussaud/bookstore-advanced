@@ -74,6 +74,12 @@ docker tag bmoussaud/bookstore-advanced-database:$DB_VERSION registry.local:5000
 docker push registry.local:5000/bmoussaud/bookstore-advanced-database:$DB_VERSION
 ```
 
+## Digital.ai Deploy
+
+Install a brand new Deploy Server if you don't have one
+
+
+
 ## References:
 
 * https://codeburst.io/creating-a-local-development-kubernetes-cluster-with-k3s-and-traefik-proxy-7a5033cb1c2d
