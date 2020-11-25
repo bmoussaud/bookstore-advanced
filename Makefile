@@ -1,13 +1,17 @@
+
+
+$(eval SHA1=$(shell git rev-parse --short HEAD))
+DB_VERSION="1.0.0-$(SHA1)"
+
 database:
 	cd database
-	SHA1=`git rev-parse --short HEAD`
-	export DB_VERSION="1.0.0-$SHA1"
+	export DB_VERSION="1.0.0-$(SHA1)"
 	docker build . --tag bmoussaud/bookstore-advanced-database:$DB_VERSION --build-arg version=$DB_VERSION
 	docker tag bmoussaud/bookstore-advanced-database:$DB_VERSION registry.local:5000/bmoussaud/bookstore-advanced-database:$DB_VERSION
 	docker push registry.local:5000/bmoussaud/bookstore-advanced-database:$DB_VERSION
 	cd -
+
 web:
-	SHA1=`git rev-parse --short HEAD`
 	mvn package -B -Dcontainer.image.name="bmoussaud/bookstore-advanced" -Dcontainer.image.registry="registry.local:5000" -Dsha1="-${SHA1}"
 	sed "s/SHA1/${SHA1}/g" kubernetes/bookstore-deployment.yml > kubernetes/bookstore-deployment-SHA1.yml
 	echo "version=1.0.0-${SHA1}" > xebialabs/values.xlvals
@@ -20,3 +24,6 @@ exportci:
 
 importci:
 	./xlw --config config.yaml apply -f xebialabs.yaml
+
+deploy: importci web
+	 ./xlw apply -f xebialabs/deployment.yaml
