@@ -23,3 +23,5 @@ scripts/.env
 terraform.tfstate
 terraform.tfstate.*
 xl-deploy-*-server
+kubernetes/bookstore-deployment-SHA1.yml
+xebialabs/values.xlvals
