@@ -38,7 +38,7 @@ spec:
         file: !file "../kubernetes/bookstore-ingress-k3s.yml"
       - name: test the application is available
         type: smoketest.HttpRequestTest
-        url: http://dev.book-cluster.demo/
+        url: http://{{env}}.book-cluster.demo/
         expectedResponseText: !value version
 
 

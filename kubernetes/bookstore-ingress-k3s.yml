@@ -8,7 +8,7 @@ spec:
     - web
     - websecure
   routes:
-    - match: Host(`dev.book-cluster.demo`)
+    - match: Host(`{{env}}.book-cluster.demo`)
       kind: Rule
       priority: 12
       services:

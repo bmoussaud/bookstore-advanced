@@ -4,9 +4,16 @@ kind: Environments
 spec:
 - directory: Environments/book-shop
   children:
+  - name: config.dev
+    type: udm.Dictionary
+    entries:
+      env: dev
   - name: book.dev
     type: udm.Environment
     members:
     - Infrastructure/book-shop/book-cluster
     - Infrastructure/book-shop/book-cluster/default
     - Infrastructure/book-shop/localhost/tester
+    dictionaries:
+      - Environments/book-shop/config.dev
+
