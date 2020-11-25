@@ -82,6 +82,7 @@ else  `$make database`
 
 * Install a brand new Deploy Server if you don't have one
 * Check the smoke test plugin is installed else install it : [https://github.com/xebialabs-community/xld-smoke-test-plugin/releases/download/v1.0.7/xld-smoke-test-plugin-1.0.7.xldp]
+* Check the gitops plugin is installed else install it : [https://github.com/xebialabs-community/xld-gitops-plugin]
 * Import all the ci definitions (application environment infrastructure) : run make `make importci`
 * Deploy the application using the UI or the command line `make deployment`
 

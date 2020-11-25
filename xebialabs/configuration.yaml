@@ -1,4 +1,14 @@
 ---
 apiVersion: xl-deploy/v1
 kind: Configuration
-spec: []
+spec:
+- name: Configuration/LocalBookStore
+  type: gitops.GitRepository
+  url: /Users/bmoussaud/Workspace/bmoussaud/bookstore-advanced
+- name: Configuration/dev deployment
+  type: gitops.Deployment
+  enabled: false
+  repository: Configuration/LocalBookStore
+  branch: main
+  latestCommitId: 8fff8bc13e4e3860d8e662bc6324d3e383e5ab23
+  path: xebialabs-deployment.yaml
