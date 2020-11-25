@@ -6,8 +6,9 @@ spec:
   children:
   - name: book-shop
     type: udm.Application
+    lastVersion: 1.0.0-0.0.1
     children:
-    - name: !value version
+    - name: 1.0.0-0.0.1
       type: udm.DeploymentPackage
       deployables:
       - name: secrets
@@ -27,18 +28,13 @@ spec:
         file: !file "../kubernetes/bookstore-configmap.yml"
       - name: bookstore-deployment
         type: k8s.ResourcesFile
-        file: !file "../kubernetes/bookstore-deployment-SHA1.yml"
+        file: !file "../kubernetes/bookstore-deployment-0.0.1.yml"
         createOrder: 63
-        readinessProbeRetry: 10
       - name: bookstore-service
         type: k8s.ResourcesFile
         file: !file "../kubernetes/bookstore-service.yml"
       - name: bookstore-ingress-k3s.yml
         type: k8s.ResourcesFile
         file: !file "../kubernetes/bookstore-ingress-k3s.yml"
-      - name: test the application is available
-        type: smoketest.HttpRequestTest
-        url: http://dev.book-cluster.demo/
-        expectedResponseText: !value version
 
 

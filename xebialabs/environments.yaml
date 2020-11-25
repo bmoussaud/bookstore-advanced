@@ -9,3 +9,4 @@ spec:
     members:
     - Infrastructure/book-shop/book-cluster
     - Infrastructure/book-shop/book-cluster/default
+    - Infrastructure/book-shop/localhost/tester

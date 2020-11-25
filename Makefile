@@ -9,6 +9,8 @@ database:
 web:
 	SHA1=`git rev-parse --short HEAD`
 	mvn package -B -Dcontainer.image.name="bmoussaud/bookstore-advanced" -Dcontainer.image.registry="registry.local:5000" -Dsha1="-${SHA1}"
+	sed "s/SHA1/${SHA1}/g" kubernetes/bookstore-deployment.yml > kubernetes/bookstore-deployment-SHA1.yml
+	echo "version=1.0.0-${SHA1}" > xebialabs/values.xlvals
 
 exportci:
 	./xlw --config config.yaml generate xl-deploy -s -p Configuration -f xebialabs/configuration.yaml
@@ -16,9 +18,5 @@ exportci:
 	./xlw --config config.yaml generate xl-deploy -s -p Infrastructure -f xebialabs/infrastructure.yaml
 	./xlw --config config.yaml generate xl-deploy -s -p Environments -f xebialabs/environments.yaml
 
-
 importci:
-	./xlw --config config.yaml apply -f xebialabs/configuration.yaml
-	./xlw --config config.yaml apply -f xebialabs/applications.yaml
-	./xlw --config config.yaml apply -f xebialabs/infrastructure.yaml
-	./xlw --config config.yaml apply -f xebialabs/environments.yaml
+	./xlw --config config.yaml apply -f xebialabs.yaml

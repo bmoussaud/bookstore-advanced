@@ -4,6 +4,12 @@ kind: Infrastructure
 spec:
 - directory: Infrastructure/book-shop
   children:
+  - name: localhost
+    type: overthere.LocalHost
+    os: UNIX
+    children:
+    - name: tester
+      type: smoketest.Runner
   - name: book-cluster
     type: k8s.Master
     apiServerURL: https://127.0.0.1:6443
