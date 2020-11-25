@@ -26,4 +26,5 @@ importci:
 	./xlw --config config.yaml apply -s -p -f xebialabs.yaml
 
 deploy: web importci
-	 ./xlw apply -s -p -f xebialabs/deployment.yaml
+	./xlw preview -f xebialabs/deployment.yaml
+	./xlw apply -s -p -f xebialabs/deployment.yaml
