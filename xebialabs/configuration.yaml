@@ -5,6 +5,9 @@ spec:
 - name: Configuration/LocalBookStore
   type: gitops.GitRepository
   url: /Users/bmoussaud/Workspace/bmoussaud/bookstore-advanced
+- name: Configuration/LocalK8SRules
+  type: stitch.FolderSource
+  path: /Users/bmoussaud/Workspace/bmoussaud/bookstore-advanced
 - name: Configuration/dev deployment
   type: gitops.Deployment
   enabled: false
