@@ -1,0 +1,7 @@
+---
+apiVersion: xl-deploy/v1
+kind: Configuration
+spec:
+- name: Configuration/LocalK8SRules
+  type: stitch.FolderSource
+  path: /Users/bmoussaud/Workspace/bmoussaud/bookstore-advanced
