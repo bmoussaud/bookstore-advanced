@@ -26,7 +26,7 @@ spec:
     description: "Adding environment and application labels using context information from Deploy"
     condition:
       deployedType: k8s.Resources
-      expression: "#ctx.currentDeployedApplication != null && #ctx.currentDeployedApplication.environment.name.contains('prod') "
+      expression: "#ctx.currentDeployedApplication != null && #ctx.currentDeployedApplication.environment.name.contains(' ') "
     processor:
       - type: k8s.MacroFreemarkerAddLabels
         description: "Using macro and context information for parameters from Deploy"
