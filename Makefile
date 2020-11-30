@@ -29,6 +29,10 @@ initialci:
 	./xlw --config config.yaml apply -s -p -f xebialabs/environments.yaml
 
 
+initialdeploy:
+	./xlw preview --values version=1.0.0-001 -f xebialabs/deployment.yaml
+	./xlw apply --values version=1.0.0-001  -s -p -f xebialabs/deployment.yaml
+
 importci:
 	./xlw --config config.yaml apply -s -p -f xebialabs.yaml
 

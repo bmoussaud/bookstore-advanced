@@ -61,10 +61,12 @@ curl -k https://localhost:80/whoami/
 * Check the gitops plugin is installed else install it : [https://github.com/xebialabs-community/xld-gitops-plugin/releases/download/v0.1.0-rc.1/xld-gitops-plugin-0.1.0-rc.1.xldp]
 
 * run Deploy 9.8 in a docker container
-  * cd xl
-  * docker-compose up
-  * docker network connect k3d-$CLUSTER_NAME xl-deploy
 
+``` bash
+$cd xl
+$docker-compose up
+$docker network connect k3d-$CLUSTER_NAME xl-deploy
+```
 
 * Edit the K3S Cluster configuration:
 
@@ -77,10 +79,14 @@ curl -k https://localhost:80/whoami/
     * `tlsPrivateKey` value with `name/user/client-key-data` value from the output of `k3d kubeconfig`
 
 * Import all the ci definitions (application environment infrastructure) : run `make initialci`
-* Deploy the application using the UI or the command line `make deployment`
+* Deploy the application using the UI or the command line
 
+```bash
+$./xlw preview --values version=1.0.0-001 -f xebialabs/deployment.yaml
+$./xlw apply --values version=1.0.0-001  -s -p -f xebialabs/deployment.yaml
+````
 
-## Build the application
+## Build the web application
 
 ```bash
 mvn package -B -Dcontainer.image.name="bmoussaud/bookstore-advanced" -Dcontainer.image.registry="registry.local:5000" -Dsha1="-0.0.1"
@@ -122,6 +128,3 @@ $make database
 * https://k33g.gitlab.io/articles/2020-02-27-K3S-05-REGISTRY.html
 * https://k3d.io/usage/guides/registries
 * https://blog.ruanbekker.com/blog/2020/02/21/persistent-volumes-with-k3d-kubernetes/
-
-
-
