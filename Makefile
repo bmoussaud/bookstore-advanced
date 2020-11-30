@@ -22,6 +22,13 @@ exportci:
 	./xlw --config config.yaml generate xl-deploy -s -p Infrastructure -f xebialabs/infrastructure.yaml
 	./xlw --config config.yaml generate xl-deploy -s -p Environments -f xebialabs/environments.yaml
 
+
+initialci:
+	./xlw --config config.yaml apply -s -p -f xebialabs/applications-0.0.1.yaml
+	./xlw --config config.yaml apply -s -p -f xebialabs/infrastructure.yaml
+	./xlw --config config.yaml apply -s -p -f xebialabs/environments.yaml
+
+
 importci:
 	./xlw --config config.yaml apply -s -p -f xebialabs.yaml
 

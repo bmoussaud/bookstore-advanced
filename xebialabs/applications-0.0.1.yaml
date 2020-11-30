@@ -19,7 +19,7 @@ spec:
         file: !file "../kubernetes/database-volume-k3s.yml"
       - name: database-deployment
         type: k8s.ResourcesFile
-        file: !file "../kubernetes/database-deployment.yml"
+        file: !file "../kubernetes/database-deployment-0.0.1.yml"
       - name: database-service
         type: k8s.ResourcesFile
         file: !file "../kubernetes/database-service.yml"
